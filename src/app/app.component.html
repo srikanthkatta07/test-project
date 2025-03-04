@@ -1,0 +1,51 @@
+<style>
+  
+</style>
+
+<main class="main">
+  <div style="display: flex; column-gap: 12px; align-items: stretch;">
+    <smart-search class="cijay" (onValueChange)="handleValueChange($event)"></smart-search>
+    <smart-datepicker 
+      [startView]="'weeks'" 
+      [WeekPicker]="true" 
+      [value]="selectedWeek" 
+      (weekChange)="handleValueChange($event)">
+   </smart-datepicker>
+  </div>
+  <smart-table [columns]="columnsArray" [data]="tableData" [selection]="false">
+    <!-- column 1 -->
+    <ng-template #SmartColumn let-item>
+      <td SmartCell>
+        {{ item.email }}
+      </td>
+    </ng-template>
+
+    <!-- column 2 -->
+    <ng-template #SmartColumn let-item >
+      <td SmartCell>
+          {{ item.subject }}
+      </td>
+    </ng-template>
+
+    <!-- column 3 -->
+    <ng-template #SmartColumn let-item>
+      <td SmartCell>
+          {{ item.sentDate }}
+      </td>
+    </ng-template>
+
+    <!-- column 4 -->
+    <ng-template #SmartColumn let-item>
+      <td SmartCell>
+          {{ item.sentStatus }}
+      </td>
+    </ng-template>
+
+    <!-- column 5 -->
+    <ng-template #SmartColumn let-item>
+      <td SmartCell>
+          {{ item.retryCount }}
+      </td>
+    </ng-template>
+  </smart-table>
+</main>
